@@ -5,7 +5,7 @@ body {
 
 header {
     margin: 0 auto;
-    border:1px solid black;
+   /* border:1px solid black;*/
     text-align: center;
     font-family: Verdana;
     font-size:120%;
@@ -29,16 +29,19 @@ MAIN BODY OF THE PAGE
 **************************************/
 #main { 
     margin: 0 auto;
-    border: 1px solid black;
+ /*   border: 1px solid black;*/
     width:60%;
     height: auto;
     max-width: 80%;
     text-align: center;
 }
 
-div {
-    min-height: 30px;
-    border: 1px solid black;
+#displayResult {
+    height: auto;
+    width:50%;
+    margin:2em auto;
+    font-size: 1.3em;
+    line-height: 2em;
 }
 
 label {
@@ -51,8 +54,9 @@ input {
     font-size: 3em;
     text-align: center;
     border-radius: 0.3em;
+    -moz-border-radius:0.3em;
     outline: 0;
-    border:2px solid red;
+    border:2px solid tomato;
 
 }
 button {
@@ -92,6 +96,28 @@ button:hover {
 .correctReply {
     background-color: orange;
 } 
+/****************************
+progress bar
+******************************/
+.wrapper3 {
+    margin: 1em auto;
+    width:50%;
+    height: 2em;
+    border: 0px solid black;
+    border-radius: 2px;
+    background-color: lightblue;
+    box-shadow: inset 0 0 2px blue, 0 2px 0 blue;
+   
+}
+
+#progressBar {
+    height: 2em;
+    width:100%;
+    
+
+}
+
+
 /*************************************
 MAIN BODY OF THE PAGE
 **************************************/

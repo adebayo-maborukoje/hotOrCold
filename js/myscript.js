@@ -54,7 +54,7 @@ var colder = function (){
             }
 
 var neitherHotNorCold = function () {
-             document.getElementById("talk").innerHTML="<div class=neitherReply> ITS NEITHER HOT NOR COLD </div>";   
+             response.innerHTML="<div class=neitherReply> ITS NEITHER HOT NOR COLD </div>";   
          }
 /*********************
 GENERATE SECRET NUMBER AND INITILIZE GAME MODE
@@ -79,13 +79,11 @@ var initialize = function () {
 var getGuess = function (e) {
     e.preventDefault();
     number = document.getElementById('userGuess').value;
+
     if (validGuess(number)) {
     console.log( "number is "+ number);
     if (number == secretNumber){
-       // (function (){
-       //      document.getElementById("talk").innerHTML="<class=hotreply> YOU GOT IT THE ANSWER IS " + secretNumber;   
-       //  })();
-        answered();
+       answered();
         hide();
         //i want to use this space to clear the input whenever a new guess is opened
         return secretNumber;   
@@ -99,7 +97,7 @@ var getGuess = function (e) {
             console.log(" new diff " + newDiff);
             console.log("previousguess is "+previousGuess);
             console.log("secretNumber is "+ secretNumber);
-
+            showPercentage(number, secretNumber);
          if (previousDiff > newDiff) {
                 hotter();      
          }
@@ -111,6 +109,7 @@ var getGuess = function (e) {
          }  
          previousGuess = number;
          console.log( "new previous is " +previousGuess);
+
     }
            
     }else{
@@ -119,6 +118,20 @@ var getGuess = function (e) {
     }
 
 }
+    var showPercentage = function () {
+
+      
+    }
+
+// $(document).ready(function () {
+//     $('.guessButton').click( function (){
+
+
+
+//     }
+
+
+// }
 
 
 
