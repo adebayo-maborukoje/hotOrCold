@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/Balogun/Desktop/source/hotOrCold/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content-type="application/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOT || COLD </title>
+<link rel="shortcut icon" href=""> 
+<link rel="stylesheet" href="file:///C:/Users/Balogun/Desktop/source/hotOrCold/css/style.css">
+
+
+<!--<script type="text/javascript">
+    $(document).ready(function(){
+    alert("on page load");
+
+
+    });
+
+
+ </script>-->
+</head>
+<body style="background:url(images/bg2.jpg); ">
+    <header>
+        HOT || COLD
+
+    </header>
+    <main id="main">
+        <form>
+
+        <label for="guess_field"> I HAVE A NUMBER, DO YOU WANNA GUESS?</label>
+        <input type="text" id="guess_field" size="5" maxlength="3" pattern="(100|[1-9]\d|\d)">
+        
+
+         <button type="submit" id="submit" name="guess" style="display:none;" value="SUBMITTING">GUESS</button>
+         <input type="reset" id="new-game" name="new-game" value="RESETTING">
+        </form> 
+         <div id="feedback">
+           <div id="waiting" class="response">Waiting For Your Guess</div>
+           <div id="hotter" class="response">Its Getting hotter!!</div>
+           <div id="colder" class="response"> Its Getting Colder</div>
+           <div id="hotNorCold" class="response">Neither Hot nor Cold</div>
+           <div id="correct-guess" class="response">GENIUS!!!</div>
+         </div>
+    </main>
+
+    <footer>
+    © 2014 BAYO MABORUKOJE    
+    </footer>
+
+ <script type="text/javascript" src="./HOT    COLD_files/jquery-1.11.1.js"></script>
+<!-- <script src="js/jquery-1.9.1.min.js"></script>  -->
+ <script type="text/javascript" src="./HOT    COLD_files/script.js"></script> 
+
+    
+
+</body></html>

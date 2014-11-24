@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="utf-8">
+<meta content-type="application/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOT || COLD </title>
+<link rel="shortcut icon" href="" /> 
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+    
+
+// function show()
+// {
+    
+//  document.getElementById('newGuess').style.display = 'block';
+//         //alert('hello');
+// }
+// function hide()
+// {
+    
+//  document.getElementById('gewGuess').style.display = 'none';
+//         //alert('hello');
+// }
+</script>
+
+    
+</head>
+<body style="background:url(images/bg2.jpg); ">
+    <header>
+        <div> 
+            <h1>
+                <span class="hot" > HOT </span><span class="colon cold">:</span><span class="colon hot">:</span><span id="cold" class="cold"> COLD </span> 
+            </h1>    
+        </div>
+    </header>
+
+    <main id="main">
+         <form >   
+
+        <label for="userGuess"> I HAVE A NUMBER, DO YOU WANNA GUESS?</label> </br>
+        <input type="text" id="userGuess" size="5" maxlength="3" pattern="(100|[1-9]\d|\d)"> 
+        </br>
+        </br>
+        <button id="newGuess"> GUESS </button>
+
+         <button id="newTask" type="reset"> NEW GAME </button>
+        </form>
+
+         <div id="feedback">
+         <div id="talk" class="hotReply coldReply neitherReply correctReply waitingReply"></div>
+   <!--   <div id="waiting" class="response">Waiting For Your Guess</div>
+          <div id="hotter" class="response">Its Getting hotter!!</div>
+           <div id="colder" class="response"> Its Getting Colder</div>
+           <div id="hotNorCold" class="response">Neither Hot nor Cold</div>
+           <div id="correct-guess" class="response">GENIUS!!!</div>
+ -->         </div>
+    </main>
+
+    <footer>
+    &copy 2014 BAYO MABORUKOJE    
+    </footer>
+
+ <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+ <!--<script src="js/jquery-1.9.1.min.js"></script> --> 
+ <script type="text/javascript" src="js/myscript.js"></script> 
+
+    
+</body>
+</html>

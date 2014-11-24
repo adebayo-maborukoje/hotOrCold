@@ -1,0 +1,107 @@
+body {
+    margin:0 auto;
+    padding: 0;
+}
+
+header {
+    margin: 0 auto;
+    border:1px solid black;
+    text-align: center;
+    font-family: Verdana;
+    font-size:120%;
+    
+}
+
+header div  h1 .hot {
+    color:red;
+    text-shadow:2px .02em 2px  blue;
+    -moz-text-shadow: 2px .02em 2px blue;
+}
+
+header div h1 .cold {
+    color:blue;
+    text-shadow:2px .02em 2px  red;
+    -moz-text-shadow: 2px .02em 2px red;
+}
+
+/*************************************
+MAIN BODY OF THE PAGE
+**************************************/
+#main { 
+    margin: 0 auto;
+    border: 1px solid black;
+    width:60%;
+    height: auto;
+    max-width: 80%;
+    text-align: center;
+}
+
+div {
+    min-height: 30px;
+    border: 1px solid black;
+}
+
+label {
+    line-height: 1.5em;
+    font-size: 2em;   
+}
+
+input {
+    line-height: 1em;
+    font-size: 3em;
+    text-align: center;
+
+}
+button {
+    width: auto;
+    height: auto;
+    max-width: 10em;
+    max-height: 10em;
+    background-color: blue;
+    color: white;
+    outline: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    opacity: 0.8;
+}
+button:hover {
+    opacity: 1;
+}
+
+.waitingReply {
+    background-color: yellow;
+}
+
+.coldReply {
+    background-color: tomato;
+
+}
+
+.hotReply{
+background-color: red;
+
+}
+
+.neitherReply {
+background-color: grey;
+}
+ 
+.correctReply {
+background-color: pink;
+} 
+/*************************************
+MAIN BODY OF THE PAGE
+**************************************/
+footer {
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+}
+
+/*.response {
+    display: none;
+}*/
+
+/*#waiting {
+    display: inline;    
+}*/
