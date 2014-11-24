@@ -84,6 +84,7 @@ var getGuess = function (e) {
     if (number == secretNumber){
        answered();
         hide();
+        showPercentage(number, secretNumber);
         //i want to use this space to clear the input whenever a new guess is opened
         return secretNumber;   
     }
@@ -91,11 +92,11 @@ var getGuess = function (e) {
         previousGuess = previousGuess;
           var previousDiff = Math.floor(Math.abs(secretNumber - previousGuess) );
           var newDiff = Math.floor(Math.abs(secretNumber - number));
-            console.log('maxnumber is '+ maxNumber);  
-            console.log("previousDiff is "+previousDiff);
-            console.log(" new diff " + newDiff);
-            console.log("previousguess is "+previousGuess);
-            console.log("secretNumber is "+ secretNumber);
+            // console.log('maxnumber is '+ maxNumber);  
+            // console.log("previousDiff is "+previousDiff);
+            // console.log(" new diff " + newDiff);
+            // console.log("previousguess is "+previousGuess);
+            // console.log("secretNumber is "+ secretNumber);
             showPercentage(number, secretNumber);
 
          if (previousDiff > newDiff) {
@@ -118,20 +119,13 @@ var getGuess = function (e) {
     }
 
 }
-// this is not working yet
+
     var showPercentage = function (number, secretNumber) {
 
-        var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)* 1.5)));
+        var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)*1.5)));  
+        // console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
+                $('#progressBar').animate({width:currentPercentage+"%"}, 1000);
             
-
-            console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
-        
-            $('.guessButton').click(function () {
-                $('.progressBar').toggleClass(function() {
-                    this.animate({width: currentPercentage}, 'fast');
-                // this.value(currentPercentage);
-                })
-            });
         }
 
 /*================================
