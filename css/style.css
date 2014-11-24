@@ -112,8 +112,10 @@ progress bar
 
 #progressBar {
     height: 2em;
-    width:100%;
-    
+    width:1%;
+    background-color: red;
+    boder:1px solid black;
+
 
 }
 

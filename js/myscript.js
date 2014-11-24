@@ -72,8 +72,7 @@ var initialize = function () {
    //  i need to clear the input field
     secretNumber = Math.round(Math.random()*100);
     console.log("SECRET NUMBER: " +secretNumber);
-   	console.log("weekeddddddd");
-	return false;
+   	return false;
 }
 
 var getGuess = function (e) {
@@ -98,6 +97,7 @@ var getGuess = function (e) {
             console.log("previousguess is "+previousGuess);
             console.log("secretNumber is "+ secretNumber);
             showPercentage(number, secretNumber);
+
          if (previousDiff > newDiff) {
                 hotter();      
          }
@@ -118,22 +118,21 @@ var getGuess = function (e) {
     }
 
 }
-    var showPercentage = function () {
+// this is not working yet
+    var showPercentage = function (number, secretNumber) {
 
-      
-    }
+        var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)* 1.5)));
+            
 
-// $(document).ready(function () {
-//     $('.guessButton').click( function (){
-
-
-
-//     }
-
-
-// }
-
-
+            console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
+        
+            $('.guessButton').click(function () {
+                $('.progressBar').toggleClass(function() {
+                    this.animate({width: currentPercentage}, 'fast');
+                // this.value(currentPercentage);
+                })
+            });
+        }
 
 /*================================
 EVENT HANDLERS
@@ -143,4 +142,3 @@ addButton.addEventListener('click', initialize, false);
 guessButton.addEventListener ('click', getGuess, false);
 
 
-//animation is javascript for the progress bar
