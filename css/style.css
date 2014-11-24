@@ -54,7 +54,7 @@ input {
 }
 button {
     width: auto;
-    height: auto;
+    height: a3uto;
     max-width: 10em;
     max-height: 10em;
     background-color: blue;
@@ -73,21 +73,21 @@ button:hover {
 }
 
 .coldReply {
-    background-color: tomato;
+    background-color: green;
 
 }
 
 .hotReply{
-background-color: red;
+    background-color: red;
 
 }
 
 .neitherReply {
-background-color: grey;
+    background-color: grey;
 }
  
 .correctReply {
-background-color: pink;
+    background-color: orange;
 } 
 /*************************************
 MAIN BODY OF THE PAGE

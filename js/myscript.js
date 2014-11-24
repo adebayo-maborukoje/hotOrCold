@@ -21,28 +21,13 @@ function hide () {
         //alert('hello');
 }hide();
 
-   /* var validInput = function (e) {
-         e.preventDefault();
-        number = document.getElementById('userGuess').value;
-        console.log( "number is "+ number); 
-        if (typeof number === /d [100 /]
-
-         NaN || typeof number === "string" || number > 100) {
-            console.log("YOU HAVE TO ENTER A VALID INPUT BETWEEN 0 and 100");
-        }   
-        else {
-            getGuess();
-        }
-        return false; 
-}*/
-
-function isNormalInteger(number) {
+var isNormalInteger = function (number) {
     return (/^[1-9]\d*$/).test(number);
 }
 
 // Checks to see if the guess is within the parameters given
-function validGuess(number) {
-    return isNormalInteger(number) && + number <= 100 && + number >= 1;
+var validGuess = function (number) {
+    return isNormalInteger(number) && number <= 100 && +number >= 1;
 }
 /*===================================================
 FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON ENDS HERE
@@ -50,19 +35,22 @@ FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON ENDS HERE
 /*==================================================
 FUNCTIONS FOR RESPONSE FIELDS
 ===================================================*/
+var response = document.getElementById("displayResult");
 var waiting = function () {
-         document.getElementById("talk").innerHTML = "<div class=waitingReply> WAITING FOR YOUR GUESS </div>";
+
+
+         response.innerHTML = "<div class=waitingReply> WAITING FOR YOUR GUESS </div>";
             }
 
 var answered = function () {
-            document.getElementById("talk").innerHTML="<div class=correctReply> YOU GOT IT THE ANSWER IS " + secretNumber + "</div>";   
+           response.innerHTML="<div class=correctReply> YOU GOT IT!! THE ANSWER IS " + secretNumber + "</div>";   
             }
 
-var hotter = function () {
-             document.getElementById("talk").innerHTML="<div class=hotReply> ITS GETTING HOTTER </div>";   
+var hotter = function (){
+             response.innerHTML="<div class=hotReply> ITS GETTING HOTTER </div>";   
             }
-var colder = function () {
-             document.getElementById("talk").innerHTML="<div class=cold Reply> ITS GETTING COLDER </div>";   
+var colder = function (){
+             response.innerHTML="<div class=coldReply> ITS GETTING COLDER </div>";   
             }
 
 var neitherHotNorCold = function () {
@@ -79,7 +67,7 @@ var initialize = function () {
      // (function (){
      //     document.getElementById("talk").innerHTML = "WAITING FOR YOUR GUESS";
      // })();  
-     waiting(); 
+    waiting(); 
     show();
    //  i need to clear the input field
     secretNumber = Math.round(Math.random()*100);
@@ -89,12 +77,14 @@ var initialize = function () {
 }
 
 var getGuess = function (e) {
-     e.preventDefault();
-	if (validGuess(number)){
-    // number = document.getElementById('userGuess').value;
-    // console.log( "number is "+ number);
+    e.preventDefault();
+    number = document.getElementById('userGuess').value;
+    if (validGuess(number)) {
+    console.log( "number is "+ number);
     if (number == secretNumber){
-       
+       // (function (){
+       //      document.getElementById("talk").innerHTML="<class=hotreply> YOU GOT IT THE ANSWER IS " + secretNumber;   
+       //  })();
         answered();
         hide();
         //i want to use this space to clear the input whenever a new guess is opened
@@ -104,25 +94,29 @@ var getGuess = function (e) {
         previousGuess = previousGuess;
           var previousDiff = Math.floor(Math.abs(secretNumber - previousGuess) );
           var newDiff = Math.floor(Math.abs(secretNumber - number));
-            // console.log('maxnumber is '+ maxNumber);  
-            // console.log("previousDiff is "+previousDiff);
-            // console.log(" new diff " + newDiff);
-            // console.log("previousguess is "+previousGuess);
-            // console.log("secretNumber is "+ secretNumber);
+            console.log('maxnumber is '+ maxNumber);  
+            console.log("previousDiff is "+previousDiff);
+            console.log(" new diff " + newDiff);
+            console.log("previousguess is "+previousGuess);
+            console.log("secretNumber is "+ secretNumber);
 
-         if (previousDiff > newDiff){
+         if (previousDiff > newDiff) {
                 hotter();      
          }
         else if (previousDiff < newDiff) {
                 colder(); 
-        }else {
-                neitherHotNorCold(); 
+        }
+        else {
+             neitherHotNorCold(); 
          }  
          previousGuess = number;
          console.log( "new previous is " +previousGuess);
     }
-  }         
-    	
+           
+    }else{
+        response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 1 - 100 </div>";
+        return;
+    }
 
 }
 
@@ -137,5 +131,3 @@ guessButton.addEventListener ('click', getGuess, false);
 
 
 //animation is javascript for the progress bar
-
-//getguess function is going to be called inside the validInput functions
