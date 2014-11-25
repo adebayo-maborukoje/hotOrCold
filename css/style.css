@@ -1,0 +1,165 @@
+body {
+    margin:0 auto;
+    padding: 0;
+    background-image: url('../images/bg2.jpg');
+    background-size: cover;
+}
+
+header {
+    margin: 0 auto;
+   /* border:1px solid black;*/
+    text-align: center;
+    font-family: Verdana;
+    font-size:120%;
+    
+}
+
+header div  h1 .hot {
+    color:red;
+    text-shadow:2px .02em 2px  blue;
+    -moz-text-shadow: 2px .02em 2px blue;
+}
+
+header div h1 .cold {
+    color:blue;
+    text-shadow:2px .02em 2px  red;
+    -moz-text-shadow: 2px .02em 2px red;
+}
+
+/*************************************
+MAIN BODY OF THE PAGE
+**************************************/
+#main { 
+    margin: 0 auto;
+    /*border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;*/
+    width:60%;
+    height: auto;
+    max-width: 60%;
+    text-align: center;
+    border-radius: 1em;
+
+
+}
+
+#displayResult {
+    height: auto;
+    width:50%;
+    margin:2em auto;
+    font-size: 1.3em;
+    line-height: 2em;
+}
+
+label {
+    margin-top: 1em;
+    line-height: 2em;
+    font-size: 1.6em;
+    font-weight: 800;
+    color:rgba(0, 0, 0, .8);   
+}
+
+input {
+    line-height: 1em;
+    font-size: 3em;
+    text-align: center;
+    border-radius: 0.3em;
+    -moz-border-radius:0.3em;
+    outline: 0;
+    border:2px solid tomato;
+
+}
+button {
+    width: auto;
+    height: auto;
+    max-width: 10em;
+    max-height: 10em;
+    background: url('../images/button.jpg') gold;
+    background-size:cover;
+    color: white;
+    outline: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    opacity: 0.8;
+    border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    box-shadow: inset 0 0 0.1em green;
+
+}
+button:hover {
+    opacity: 1;
+}
+
+.waitingReply {
+    background-color: yellow;
+    color:red;
+}
+
+.coldReply {
+    background-color: blue;
+    color:white;
+}
+
+.hotReply{
+    background-color: red;
+    color:white;
+
+}
+
+.neitherReply {
+    background-color: grey;
+    color:#d3e3e3;
+}
+ 
+.correctReply {
+    background-color: orange;
+    color:red;
+} 
+/****************************
+progress bar
+******************************/
+.wrapper3 {
+    margin: 1em auto;
+    width:50%;
+    height: 2em;
+    border: 0px solid black;
+    border-radius: 2px;
+    background-color: #e2e2e2;
+    box-shadow: inset 0 0 .2em blue, 0 0.2em 0 orange;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+   
+}
+
+#progressBar {
+    height: 2em;
+    width:1%;
+    background:-webkit-linear-gradient(left, yellow, red);
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: inset 0 0 .2em  0.3em orange, 0 0.2em 5px tomato;
+}
+
+
+/*************************************
+MAIN BODY OF THE PAGE
+**************************************/
+footer {
+    position: fixed;
+    width:100%;
+    bottom: 0px;
+    text-align: center;
+    float: right;
+   
+
+}
+
+footer div {
+    margin: 0 auto;
+    width:70%;
+    height: inherit;
+    border-top:2px solid black;
+    color:black;
+    text-align: center;
+    border-radius: 1em;
+}

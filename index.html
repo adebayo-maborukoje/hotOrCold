@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="utf-8">
+<meta content-type="application/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOT || COLD </title>
+<link rel="shortcut icon" href="" /> 
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+    
+
+// function show()
+// {
+    
+//  document.getElementById('newGuess').style.display = 'block';
+//         //alert('hello');
+// }
+// function hide()
+// {
+    
+//  document.getElementById('gewGuess').style.display = 'none';
+//         //alert('hello');
+// }
+</script>
+
+    
+</head>
+<body style="background:url(images/bg2.jpg); ">
+    <header>
+        <div > 
+            <h1>
+                <span class="hot" > HOT </span><span class="colon cold">:</span><span class="colon hot">:</span><span id="cold" class="cold"> COLD </span> 
+            </h1>    
+        </div>
+    </header>
+
+    <main id="main">
+         <form >   
+
+        <label for="userGuess"> The Pirate has locked the Treasure with a Number between 0-100. Get that number before he finds <em>you</em> out!</label> </br>
+        <input type="text" id="userGuess" size="5" maxlength="3" > 
+        </br>
+        </br>
+        <button id="newGuess"> Guess </button>
+
+         <button id="newTask" type="reset"> New Game </button>
+        </form>
+
+      
+         <div id="displayResult" class="hotReply coldReply neitherReply correctReply waitingReply"></div>
+   
+   <!-- THE PROGRESS BAR -->
+        <h3>Monitor Your Progress</h3>
+        <div class="wrapper3"><div id="progressBar" value=""></div></div>
+    </main>
+
+    <footer>
+    <div><h4>
+    &copy 2014 BAYO MABORUKOJE</h4></div>    
+    </footer>
+
+ <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+ <!--<script src="js/jquery-1.9.1.min.js"></script> --> 
+ <script type="text/javascript" src="js/myscript.js"></script> 
+
+    
+</body>
+</html>
