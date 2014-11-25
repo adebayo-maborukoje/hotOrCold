@@ -73,8 +73,8 @@ var game = {
         getGuess : function () {
                  //e.preventDefault();
                 var secretNumber = game.secretNumber;
-                 console.log("THE SECR IS " +secretNumber);
-               number = document.getElementById('userGuess').value;
+                     console.log("THE SECR IS " +secretNumber);
+                var number = document.getElementById('userGuess').value;
 
                if (game.validGuess(number)) {
                     console.log( "number is "+ number);
