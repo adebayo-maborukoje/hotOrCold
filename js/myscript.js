@@ -113,7 +113,7 @@ var game = {
                
                 }else
                     {
-                    this.response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 1 - 100 </div>";
+                    this.response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 0 - 100 </div>";
                     return ;
                     }
                     return false;
