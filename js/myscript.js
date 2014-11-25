@@ -1,12 +1,4 @@
 
-
-/*================================*
-FUNCTIONS
-================================*/
-
-/*==================================================
-FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON
-===================================================*/
 var game = { 
         addButton : document.getElementById("newTask"),
         guessButton : document.getElementById('newGuess'),
