@@ -39,7 +39,7 @@ var game = {
                 },
 
         answered :function () {
-             this.response.innerHTML="<div class=correctReply> You Found The Pirates Secret Number At " + game.secretNumber + "</div>";   
+             this.response.innerHTML="<div class=correctReply> You Found The Pirates Secret Number At " + this.secretNumber + "</div>";   
                 },
 
         hotter : function (){
@@ -60,54 +60,54 @@ var game = {
 
         initialize : function () {
               
-                game.previousGuess = 0; 
+                this.previousGuess = 0; 
              
-                game.waiting(); 
-                game.show();
+                this.waiting(); 
+                this.show();
                 //  i need to clear the input field
-                game.secretNumber = Math.round(Math.random()*100);
-                console.log("SECRET NUMBER: " + game.secretNumber);
-               	return game.secretNumber;
+                this.secretNumber = Math.round(Math.random()*100);
+                console.log("SECRET NUMBER: " + this.secretNumber);
+               	return this.secretNumber;
                 },
 
         getGuess : function () {
                  //e.preventDefault();
-                var secretNumber = game.secretNumber;
+                var secretNumber = this.secretNumber;
                      console.log("THE SECR IS " +secretNumber);
                 var number = document.getElementById('userGuess').value;
 
-               if (game.validGuess(number)) {
+               if (this.validGuess(number)) {
                     console.log( "number is "+ number);
                       if (number == secretNumber){
-                            game.answered();
-                            game.hide();
-                            game.showPercentage(number, secretNumber);
+                            this.answered();
+                            this.hide();
+                            this.showPercentage(number, secretNumber);
                             //i want to use this space to clear the input whenever a new guess is opened
-                            game.secretNumber = secretNumber;
-                            return game.secretNumber; 
+                            this.secretNumber = secretNumber;
+                            return this.secretNumber; 
 
                         }else {
                             
-                            var previousGuess = game.previousGuess;
+                            var previousGuess = this.previousGuess;
                             var previousDiff = Math.floor(Math.abs(secretNumber - previousGuess));
                             var newDiff = Math.floor(Math.abs(secretNumber - number));
-            // console.log('maxnumber is '+ game.maxNumber);  
+            // console.log('maxnumber is '+ this.maxNumber);  
             // console.log("previousDiff is "+previousDiff);
             // console.log(" new diff " + newDiff);
             // console.log("previousguess is "+previousGuess);
             // console.log("secretNumber is "+ secretNumber);
-                            game.showPercentage(number, secretNumber);
+                            this.showPercentage(number, secretNumber);
 
                                 if (previousDiff > newDiff) {
-                                        game.hotter();      
+                                        this.hotter();      
                                  }
                                 else if (previousDiff < newDiff) {
-                                        game.colder(); 
+                                        this.colder(); 
                                 }
                                 else {
-                                     game.neitherHotNorCold(); 
+                                     this.neitherHotNorCold(); 
                                  }  
-                             game.previousGuess = number;
+                             this.previousGuess = number;
                              console.log( "new previous is " +previousGuess);
                         }
                
