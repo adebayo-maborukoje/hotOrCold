@@ -1,9 +1,4 @@
-var addButton = document.getElementById("newTask");
-var guessButton = document.getElementById('newGuess');
-var secretNumber = 0;
-var number = 0;
-var maxNumber = 100;
-var previousGuess = 0;
+
 
 /*================================*
 FUNCTIONS
@@ -12,127 +7,146 @@ FUNCTIONS
 /*==================================================
 FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON
 ===================================================*/
-function show () {
-     document.getElementById('newGuess').style.display = 'inline';
-        //alert('hello');
-}
-function hide () {
-     document.getElementById('newGuess').style.display = 'none';
-        //alert('hello');
-}hide();
+var game = { 
+        addButton : document.getElementById("newTask"),
+        guessButton : document.getElementById('newGuess'),
+        secretNumber : 0,
+        number : 0,
+        maxNumber : 100,
+        previousGuess : 0,
 
-var isNormalInteger = function (number) {
-    return (/^[1-9]\d*$/).test(number);
-}
+    
 
-// Checks to see if the guess is within the parameters given
-var validGuess = function (number) {
-    return isNormalInteger(number) && number <= 100 && +number >= 1;
-}
-/*===================================================
-FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON ENDS HERE
-===================================================*/
-/*==================================================
-FUNCTIONS FOR RESPONSE FIELDS
-===================================================*/
-var response = document.getElementById("displayResult");
-var waiting = function () {
+        show : function () {
+            document.getElementById('newGuess').style.display = 'inline';
+            //alert('hello');
+            },
+
+        hide : function () {
+            document.getElementById('newGuess').style.display = 'none';
+            //alert('hello');
+            },
+
+        isNormalInteger : function (number) {
+            return (/^[1-9]\d*$/).test(number);
+            },
+
+        // Checks to see if the guess is within the parameters given
+        validGuess : function (number) {
+            return this.isNormalInteger(number) && number <= 100 && +number >= 1;
+            },
+        /*===================================================
+        FUNCTIONS TO HIDE AND SHOW THE GUESS BUTTON ENDS HERE
+        ===================================================*/
+        /*==================================================
+        FUNCTIONS FOR RESPONSE FIELDS
+        ===================================================*/
+        response : document.getElementById("displayResult"),
+        waiting : function () {
+             this.response.innerHTML = "<div class=waitingReply> WAITING FOR YOUR GUESS </div>";
+                },
+
+        answered :function () {
+             this.response.innerHTML="<div class=correctReply> You Found The Pirates Secret Number At " + game.secretNumber + "</div>";   
+                },
+
+        hotter : function (){
+             this.response.innerHTML="<div class=hotReply> ITS GETTING HOTTER </div>";   
+                },
+
+        colder : function (){
+            this.response.innerHTML="<div class=coldReply> ITS GETTING COLDER </div>";   
+                },
+
+        neitherHotNorCold : function () {
+            this.response.innerHTML="<div class=neitherReply> ITS NEITHER HOT NOR COLD </div>";   
+                },
+        /*********************
+        GENERATE SECRET NUMBER AND INITILIZE GAME MODE
+        **********************/
 
 
-         response.innerHTML = "<div class=waitingReply> WAITING FOR YOUR GUESS </div>";
-            }
+        initialize : function () {
+              
+                game.previousGuess = 0; 
+             
+                game.waiting(); 
+                game.show();
+                //  i need to clear the input field
+                game.secretNumber = Math.round(Math.random()*100);
+                console.log("SECRET NUMBER: " + game.secretNumber);
+               	return game.secretNumber;
+                },
 
-var answered = function () {
-           response.innerHTML="<div class=correctReply> YOU GOT IT!! THE ANSWER IS " + secretNumber + "</div>";   
-            }
+        getGuess : function () {
+                 //e.preventDefault();
+                var secretNumber = game.secretNumber;
+                 console.log("THE SECR IS " +secretNumber);
+               number = document.getElementById('userGuess').value;
 
-var hotter = function (){
-             response.innerHTML="<div class=hotReply> ITS GETTING HOTTER </div>";   
-            }
-var colder = function (){
-             response.innerHTML="<div class=coldReply> ITS GETTING COLDER </div>";   
-            }
+               if (game.validGuess(number)) {
+                    console.log( "number is "+ number);
+                      if (number == secretNumber){
+                            game.answered();
+                            game.hide();
+                            game.showPercentage(number, secretNumber);
+                            //i want to use this space to clear the input whenever a new guess is opened
+                            game.secretNumber = secretNumber;
+                            return game.secretNumber; 
 
-var neitherHotNorCold = function () {
-             response.innerHTML="<div class=neitherReply> ITS NEITHER HOT NOR COLD </div>";   
-         }
-/*********************
-GENERATE SECRET NUMBER AND INITILIZE GAME MODE
-**********************/
-
-
-var initialize = function () {
-            // this is to show the 'waiting for your guess' using an anonymous function//
-           previousGuess = 0; 
-     // (function (){
-     //     document.getElementById("talk").innerHTML = "WAITING FOR YOUR GUESS";
-     // })();  
-    waiting(); 
-    show();
-   //  i need to clear the input field
-    secretNumber = Math.round(Math.random()*100);
-    console.log("SECRET NUMBER: " +secretNumber);
-   	return false;
-}
-
-var getGuess = function (e) {
-    e.preventDefault();
-    number = document.getElementById('userGuess').value;
-
-    if (validGuess(number)) {
-    console.log( "number is "+ number);
-    if (number == secretNumber){
-       answered();
-        hide();
-        showPercentage(number, secretNumber);
-        //i want to use this space to clear the input whenever a new guess is opened
-        return secretNumber;   
-    }
-     else{
-        previousGuess = previousGuess;
-          var previousDiff = Math.floor(Math.abs(secretNumber - previousGuess) );
-          var newDiff = Math.floor(Math.abs(secretNumber - number));
-            // console.log('maxnumber is '+ maxNumber);  
+                        }else {
+                            
+                            var previousGuess = game.previousGuess;
+                            var previousDiff = Math.floor(Math.abs(secretNumber - previousGuess));
+                            var newDiff = Math.floor(Math.abs(secretNumber - number));
+            // console.log('maxnumber is '+ game.maxNumber);  
             // console.log("previousDiff is "+previousDiff);
             // console.log(" new diff " + newDiff);
             // console.log("previousguess is "+previousGuess);
             // console.log("secretNumber is "+ secretNumber);
-            showPercentage(number, secretNumber);
+                            game.showPercentage(number, secretNumber);
 
-         if (previousDiff > newDiff) {
-                hotter();      
-         }
-        else if (previousDiff < newDiff) {
-                colder(); 
-        }
-        else {
-             neitherHotNorCold(); 
-         }  
-         previousGuess = number;
-         console.log( "new previous is " +previousGuess);
+                                if (previousDiff > newDiff) {
+                                        game.hotter();      
+                                 }
+                                else if (previousDiff < newDiff) {
+                                        game.colder(); 
+                                }
+                                else {
+                                     game.neitherHotNorCold(); 
+                                 }  
+                             game.previousGuess = number;
+                             console.log( "new previous is " +previousGuess);
+                        }
+               
+                }else
+                    {
+                    this.response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 1 - 100 </div>";
+                    return ;
+                    }
+                    return false;
+        },
 
-    }
+        showPercentage : function (number, secretNumber) {
+            var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)*1.5)));  
+            // console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
+                    $('#progressBar').animate({width:currentPercentage+"%"}, 1000);
            
-    }else{
-        response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 1 - 100 </div>";
-        return;
-    }
-
-}
-
-    var showPercentage = function (number, secretNumber) {
-
-        var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)*1.5)));  
-        // console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
-                $('#progressBar').animate({width:currentPercentage+"%"}, 1000);
-            
-        }
-
+         return false;    
+         }, 
+        
+}; // this is the end of the object
 /*================================
 EVENT HANDLERS
 ================================*/
-addButton.addEventListener('click', initialize, false);
+game.hide();
+game.addButton.addEventListener('click', function() {
+    game.initialize();
+} , false);
 // guessButton.onclick = getGuess;
-guessButton.addEventListener ('click', getGuess, false);
+game.guessButton.addEventListener ('click',function(e) {
+    e.preventDefault();
+    game.getGuess();
+}, false);
 
 
