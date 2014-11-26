@@ -64,6 +64,7 @@ var game = {
                 this.counter=1;
              	this.waiting(); 
                 this.show();
+                $('#progressBar').animate({width:0+"%"}, 1000);
                 //  i need to clear the input field
                 this.secretNumber = Math.round(Math.random()*100);
                 console.log("SECRET NUMBER: " + this.secretNumber);
