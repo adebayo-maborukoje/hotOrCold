@@ -84,7 +84,7 @@ var game = {
                             this.answered();
                             this.hide();
                             this.showPercentage(number, secretNumber);
-                            //i want to use this space to clear the input whenever a new guess is opened
+                    
                             this.secretNumber = secretNumber;
                             return this.secretNumber; 
 
