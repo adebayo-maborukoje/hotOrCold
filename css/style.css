@@ -1,7 +1,7 @@
 body {
     margin:0 auto;
     padding: 0;
-    background-image: url('../images/bg2.jpg');
+    background-image: url('../images/bg3.jpg');
     background-size: cover;
 }
 
@@ -135,6 +135,7 @@ progress bar
     height: 2em;
     width:1%;
     background:-webkit-linear-gradient(left, yellow, red);
+    background:-moz-linear-gradient(left, yellow, red);
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
     box-shadow: inset 0 0 .2em  0.3em orange, 0 0.2em 5px tomato;
