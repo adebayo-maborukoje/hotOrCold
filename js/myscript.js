@@ -6,8 +6,8 @@ var game = {
         number : 0,
         maxNumber : 100,
         previousGuess : 0,
-
-    
+        counter: 1,	
+    	currentPercentage: 0,
 
         show : function () {
             document.getElementById('newGuess').style.display = 'inline';
@@ -39,7 +39,7 @@ var game = {
                 },
 
         answered :function () {
-             this.response.innerHTML="<div class=correctReply> You Found The Pirates Secret Number At " + this.secretNumber + "</div>";   
+             this.response.innerHTML="<div class=correctReply> You Found The Pirate's Secret Number after " + this.counter + " Guess(es) </div>";   
                 },
 
         hotter : function (){
@@ -61,13 +61,14 @@ var game = {
         initialize : function () {
               
                 this.previousGuess = 0; 
-             
-                this.waiting(); 
+                this.counter=1;
+             	this.waiting(); 
                 this.show();
                 //  i need to clear the input field
                 this.secretNumber = Math.round(Math.random()*100);
                 console.log("SECRET NUMBER: " + this.secretNumber);
                	return this.secretNumber;
+               	return this.counter;
                 },
 
         getGuess : function () {
@@ -109,19 +110,24 @@ var game = {
                                  }  
                              this.previousGuess = number;
                              console.log( "new previous is " +previousGuess);
-                        }
+                        } 
+                        document.getElementById('userGuess').value="";
+                        this.counter ++;
+
+                        return this.counter;
                
                 }else
                     {
                     this.response.innerHTML ="<div class=hotReply> OOPS!!!! PLEASE ENTER A NUMBER BETWEEN 0 - 100 </div>";
-                    return ;
+                    	document.getElementById('userGuess').value="";
+                    	return ;
                     }
                     return false;
         },
 
         showPercentage : function (number, secretNumber) {
-            var currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)*1.5)));  
-            // console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
+           currentPercentage = Math.abs(100-( Math.floor(Math.abs(secretNumber - number)*1.5)));  
+             console.log("THE PERCENTAGE IS "+ currentPercentage + " %");
                     $('#progressBar').animate({width:currentPercentage+"%"}, 1000);
            
          return false;    
